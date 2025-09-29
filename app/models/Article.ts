@@ -13,11 +13,15 @@ export default class Article {
         this.#publishedAt = publishedAt;
     }
 
+    getId() {
+        return this.#id;
+    }
     getTitle() {
         return this.#title;
     }
     getSummary() {
-        const summary = this.#content.slice(0, 200) + "...";
-        return summary;
+        return this.#content.length > 200 ?
+            this.#content.slice(0, 200) + "..."
+            : this.#content;
     }
 }

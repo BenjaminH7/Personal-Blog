@@ -1,12 +1,25 @@
-import Article from "./models/Article";
-const article = new Article(1, 'Mon titre', 'Lorem Ispum Dolor Lorem Ispum Dolor  Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor Lorem Ispum Dolor', 123);
+
+import Link from "next/link";
+
+import { blog } from "./data/seed";
+
+
 
 export default function Home() {
+  const posts = blog.list();
   return (
-    <div>
-      {article.getTitle()}
+    <main>
+      <h1>Articles</h1>
       <br />
-      {article.getSummary()}
-    </div>
+      <ul>
+        {posts.map((p) => (
+          <li key={p.getId()}>
+            <br />
+            <Link href={`/posts/${p.getId()}`}><h2>{p.getTitle()}</h2></Link>
+            <p>{p.getSummary()}</p>
+          </li>
+        ))}
+      </ul>
+    </main >
   );
 }
