@@ -1,5 +1,4 @@
 import Article from "./Article";
-
 export default class Blog {
     #posts: Article[] = [];
 

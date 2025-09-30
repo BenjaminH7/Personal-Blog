@@ -1,22 +1,26 @@
-import { error } from "console";
+import Auteur from "./Auteur";
 
 export default class Article {
     #id: number;
     #title: string;
     #content: string;
-    #authorId: number;
+    #author: Auteur;
     #publishedAt: Date | null;
 
-    constructor(id: number, title: string, content: string, authorId: number, publishedAt: Date | null = null) {
+    constructor(id: number, title: string, content: string, author: Auteur, publishedAt: Date | null = null) {
         this.#id = id;
-        if (!title) throw new Error("le titre doit être rempli");
+        if (!title.trim()) throw new Error("le titre doit être rempli");
         this.#title = title;
 
-        if (content.length < 10) throw new Error("le contenu est trop court")
+        if (content.trim().length < 10) throw new Error("le contenu est trop court")
         this.#content = content;
-        this.#authorId = authorId;
+        this.#author = author;
         this.#publishedAt = publishedAt;
     }
+    getAuthor() {
+        return this.#author;
+    }
+
 
     getId() {
         return this.#id;

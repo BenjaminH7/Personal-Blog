@@ -10,5 +10,9 @@ export default class Auteur {
         this.#bio = bio;
         this.#email = email;
     }
+    getName() {
+        return this.#nom
+    }
 
 }
+

@@ -13,6 +13,6 @@ export default function Page({ params }: { params: { id: string } }) {
 
             <h3>{post.getTitle()}</h3>
             <p>{post.getContent()}</p>
-        </div>
+            <p> Ecrit par {post.getAuthor().getName()}</p>        </div>
     );
 }
