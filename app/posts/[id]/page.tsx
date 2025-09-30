@@ -10,8 +10,9 @@ export default function Page({ params }: { params: { id: string } }) {
     return (
         <div>
             <Link href="/"><h1>Accueil</h1></Link>
-            <h2>{post.getTitle()}</h2>
-            <p>{post.getSummary()}</p>
+
+            <h3>{post.getTitle()}</h3>
+            <p>{post.getContent()}</p>
         </div>
     );
 }
