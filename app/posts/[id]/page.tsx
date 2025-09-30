@@ -8,11 +8,10 @@ export default function Page({ params }: { params: { id: string } }) {
     if (!post) return notFound();
 
     return (
-        <div>
-            <Link href="/"><h1>Accueil</h1></Link>
-
-            <h3>{post.getTitle()}</h3>
-            <p>{post.getContent()}</p>
-            <p> Ecrit par {post.getAuthor().getName()}</p>        </div>
+        <div className="p-2">
+            <h1 className="px-2 font-elegant text-4xl tracking-tight italic md:text-3xl px-2">{post.getTitle()}</h1>
+            <p className="px-2">{post.getContent()}</p>
+            <p className="px-2"> Ecrit par {post.getAuthor().getName()}</p>
+        </div >
     );
 }
